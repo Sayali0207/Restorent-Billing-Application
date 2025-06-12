@@ -5,11 +5,12 @@ let conn=mysql.createConnection({
     password:"root",
     database:"Project"
 });
-conn.connect(function(err){
+conn.connect((err)=>{
     if(err){
-        console.log("Error connecting to the database: " + err);
-        return;
+        console.log("database not connected");
     }
-    console.log("Connected to the database");
+    else{
+        console.log("database is connected");
+    }
 });
 module.exports=conn;
