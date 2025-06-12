@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/addcategory.css"/>
+</head>
+<body>
+   
+    <div class="form-container">
+        <form id="category-form" class="category-form" action="/addcat" method="POST">
+            <h2>Add Category</h2>
+            <div class="form-group">
+                <!-- <label for="name">Category Name</label> -->
+                <input type="text" name="name" id="name" placeholder="Enter Category Name"/>
+            </div>
+            <p id="message" class="message"></p>
+            <button type="submit" class="submit-btn">Add Category</button>
+           <h4><%=msgadded%></h4>
+        </form>
+
+    </div>
+
+     
+
+    
+</body>
+</html>

@@ -4,18 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel=""stylesheet" href="/admindashboard.css/">
+   <link rel="stylesheet" href="/admindashbaord.css">
+   <script>
+       function toggleDropdown(id) {
+    const dropdown = document.getElementById(id);
+    dropdown.classList.toggle("show");
+    }
+   </script>
+
 </head>
 <body>
+    <%-include("nav.ejs") %>
     <div class="dashboard">
         <div class="sidebar">
-            <h2>Dashboard</h2>
-
+            <!-- <h2>Dashboard</h2> -->
+            <div class="logo">
+              <img src="/images/Cheflogo.jpeg" alt="Logo" width="100" />
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-button">Dashboard</button>
+                <div class="dropdown-content">
+                    <!-- <a href="#">Add Category</a> -->
+                    <!-- <a href="#">View Category</a> -->
+                </div>
+            </div>
             <div class="dropdown">
                 <button class="dropdown-button">Category</button>
                 <div class="dropdown-content">
-                    <a href="#">Add Category</a>
-                    <a href="#">View Category</a>
+                    <a href="/addcategory">Add Category</a>
+                    <a href="/viewcategory">View Category</a>
                 </div>
             </div>
 
@@ -66,7 +83,19 @@
                     <a href="#">Monthly Reports</a>
                 </div>
             </div>
-            <a href="/home"><button>Home</button></a>
+        </div>
+        <div class="frameitem">
+           <% if(msg==="no")
+           {
+            
+           }
+           else
+           {
+            %>
+                <%-include(msg)%>
+            <%
+           }
+           %>
         </div>
     </div>
 </body>

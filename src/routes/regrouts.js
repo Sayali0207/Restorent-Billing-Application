@@ -10,4 +10,7 @@ router.post("/save",controller.saveuser)
 router.post("/addadmin",controller.registerUser);
 router.get('/admindashboard',controller.admindashboard);
 router.get('/home',controller.home);
+router.get('/addcategory',controller.addcategory);
+router.post("/addcat",controller.addcat)
+router.get('/viewcategory',controller.viewcategory);
 module.exports = router;

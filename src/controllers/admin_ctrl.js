@@ -9,7 +9,7 @@ exports.homepage = (req, res) => {
   } else if (req.session.username === "admin") {
     // Admin logged in
     console.log("admin");
-    res.render("admindashboard");
+    res.render("admindashboard",{msg:"no",msg1:"",msgadded:""});
   } else if (req.session.staff_name) {
     // Staff logged in
     console.log("staff");
@@ -33,7 +33,13 @@ exports.registerUser=(req, res) => {
     res.send('User Register succesfully');
 }
 exports.admindashboard=(req, res) => {
-    
+    res.render('admindashboard',{msg:"no",msg1:"",msgadded:""});
+}
+exports.addcategory=(req, res) => {
+  res.render('admindashboard',{msg:"addcategory.ejs",msg1:"",msgadded:""}); //msg replace with the file name
+}
+exports.viewcategory=(req,res)=>{
+  res.render('admindashboard',{msg:"viewcategory.ejs",msg1:"",msgadded:""});
 }
     
 exports.saveuser = (req, res) => {
@@ -45,7 +51,7 @@ exports.saveuser = (req, res) => {
     r.then((result) => {
         if (result.role === "admin") {
             req.session.username = result.role;
-            res.render("admindashboard", { msg: "Welcome " + req.session.username });
+            res.render("admindashboard", { msg:"no",msg1: "Welcome " + req.session.username ,msgadded:""});
         }
         else if (result.role === "staff") {
             req.session.staff_name = result.data[0].staff_name; // use 'req.session', not 'res.session'
@@ -58,4 +64,18 @@ exports.saveuser = (req, res) => {
         console.error(err);
         res.status(500).send("Internal Server Error");
     });
+};
+exports.addcat=(req,res)=>
+{
+  let {name}=req.body;
+  let result=model.addcategory(name);
+
+  result.then((r)=>
+  {
+    res.render('admindashboard',{msg:"addcategory.ejs",msg1:"",msgadded:r});
+  });
+  result.catch((err)=>
+  {
+    console.log(err);
+  })
 };

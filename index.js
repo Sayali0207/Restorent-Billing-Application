@@ -1,18 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c377cd444140bb4fb5eddfe627a54a35eb64e126
-let express = require('express');
-let app = express();
-let bodyParser = require('body-parser');
-let db = require('./src/config/db');
-<<<<<<< HEAD
->>>>>>> c377cd444140bb4fb5eddfe627a54a35eb64e126
-=======
->>>>>>> c377cd444140bb4fb5eddfe627a54a35eb64e126
+let app = require('./src/app.js');
 
-let app=require("./src/app.js");
+
+
+
 
 app.get('/', (req, res) => {
     res.send("Welcome in Our Restaurant");

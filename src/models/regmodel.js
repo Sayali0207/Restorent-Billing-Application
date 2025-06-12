@@ -49,3 +49,34 @@ exports.registerAdmin = function(oldname, username, password, name, email, conta
         });
     });
 }
+
+exports.addcategory = function(category_name) {
+    return new Promise((resolve, reject) => {
+        con.query(
+            "INSERT INTO category(cat_name) VALUES(?)",
+            [category_name],
+            (err, result) => {
+                if (err) {
+                    console.log("Error in adding category:", err);
+                    reject("Error in adding category" );
+                } else {
+                    console.log("Category added successfully");
+                    resolve("Category added successfully" );
+                }
+            }
+        );
+    });
+}
+exports.viewcategory = function() {
+    return new Promise((resolve, reject) => {
+        con.query("SELECT * FROM category", (err, result) => {
+            if (err) {
+                console.log("Error in fetching categories:", err);
+                reject("Error in fetching categories");
+            } else {
+                console.log("Categories fetched successfully");
+                resolve(result);
+            }
+        });
+    });
+}
