@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/register.css"/>
+</head>
+<body>
+    <form  name="frm"  action="/addadmin" method="post" >
+         <div class="register-container">
+        <div  class="register-form">
+        <h2>Register</h2>
+       
+    <input type="text" name="name" value="" placeholder="Enter Name" class="control"/><br><br>
+    <input type="text" name="email" value="" placeholder="Enter Email" class="control"/><br><br>
+    <input type="text" name="contact" value="" placeholder="Enter contact" class="control"/><br><br>
+    <input type="text" name="oldname" value="" placeholder="Enter oldname" class="control"/><br><br>
+    <input type="text" name="username" value="" placeholder="Enter username" class="control"/><br><br>
+    <input type="password" name="password" value="" placeholder="Enter Password" class="control"/><br><br>
+    <input type="submit"  name="s" value="Register" class="control"/><br><br>
+    </div>
+    <%= msg %>
+    </div>
+    </form>
+</body>
+</html>

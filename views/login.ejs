@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/login.css"/>
+    <script>
+        function validateForm(){
+            const username = document.forms["loginForm"]["username"].value;
+            const capitalLetterPattern = /^[A-Z]/;
+            IF(!capitalLetterPattern.test(username)){
+                alert("Username must start with a capital letter");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form action="/save" method="post" class="login-form">
+       
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+
+            <input type="text" name="username" value="" placeholder="Enter Username" class="control"/><br><br>
+            <input type="password" name="password" value="" placeholder="Enter Password" class="control"/><br><br>
+            <input type="submit"  name="s" value="Login" class="control"/><br><br>
+            <p class="signup-text">Not a Member? <a href="/register" class="signup-link">Signup</a></p>
+        </div>
+    </div>
+    </form>
+
+</body>
+</html>

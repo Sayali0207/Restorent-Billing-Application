@@ -1,0 +1,62 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Body style */
+body {
+  background-color: #ffffff; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container for the form */
+.register-container {
+  background-color: antiquewhite;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+/* Form title */
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Input fields */
+.control {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  transition: 0.3s ease;
+}
+
+/* Input focus effect */
+.control:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Submit button style */
+input[type="submit"].control {
+   background-color: rgb(172, 82, 82);
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"].control:hover {
+  background-color: #0056b3;
+}
