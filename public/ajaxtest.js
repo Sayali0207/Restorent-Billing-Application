@@ -3,9 +3,11 @@ let ajaxImpl=(str)=>{
     let xhttp=new XMLHttpRequest();
      xhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
-            let tableBody=document.getElementById("tblbody");
+            let tableBody=document.getElementById("tblBody");
+            document.getElementById("tblBody").innerHTML=""; // Clear previous results
             let responseData = this.responseText;
             let jsonObject = JSON.parse(responseData);
+            console.log(jsonObject);
             jsonObject.forEach((item,index) => {
                 let row=document.createElement("tr");
 
