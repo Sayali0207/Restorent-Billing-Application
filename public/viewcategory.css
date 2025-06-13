@@ -1,0 +1,108 @@
+
+.view-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  flex-direction: column;
+  width: 80%;
+  /* border: 1px solid #000; */
+  margin-left: 15%;
+  margin-top: 10%;
+  
+}
+
+.view-category-table {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 2%;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  border: 1px solid #000;
+  
+
+}
+
+.view-category-table h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  /* color: #343a40; */
+}
+
+.view-category-searchbar {
+  margin-bottom: 10px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.view-category-searchbar input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.view-category-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.view-category-table th,
+.view-category-table td {
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.view-category-table th {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.pagination-controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination-controls button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.pagination-controls button:hover {
+  background: #218838;
+}
+
+.pagination-controls .active-page {
+  background-color: #218838;
+  font-weight: bold;
+}
+delete-button, .update-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: #3498db;
+  color: #fff;
+  boredr:none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.update-button {
+  background-color: #3498db;
+  color: #fff;
+}

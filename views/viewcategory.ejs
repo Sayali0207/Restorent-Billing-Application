@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/viewcategory.css"/>
+    <script type='text/javascript' src="/ajaxtest.js"></script>
+</head>
+<body>
+    <div class="view-category" >
+        <div  class="view-category-searchbar">
+            <i class="fa-fa-search"></i>
+            <input type="text" placeholder="Seach Category....." onkeyup="ajaxImpl(this.value)" id="search-input">
+           
+        </div>
+        
+        <div class="view-category-table">
+            <h2>View Categories</h2>
+            <table class="view-category-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Category Name</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <thbody id="tblBody">
+                    <% categories.forEach(category => { %>
+                        <tr>
+                            <td><%= category.cat_id %></td>
+                            <td><%= category.cat_name %></td>
+                            <td><button class="delete-button" data-id="<%= category._id %>"><a href="/deletecat?id=<%=category.cat_id%>">Delete</a></button></td>
+                            <td><button class="update-button" data-id="<%= category._id %>">Update</button></td>
+                        </tr>
+                    <% }) %>
+                </thbody>
+            </table>
+    
+             <div class="pagination-controls" id="pagination"></div>
+        </div>
+    </div>
+</body>
+</html>

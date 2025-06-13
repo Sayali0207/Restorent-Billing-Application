@@ -49,3 +49,67 @@ exports.registerAdmin = function(oldname, username, password, name, email, conta
         });
     });
 }
+
+exports.addcategory = function(category_name) {
+    return new Promise((resolve, reject) => {
+        con.query(
+            "INSERT INTO category(cat_name) VALUES(?)",
+            [category_name],
+            (err, result) => {
+                if (err) { 
+                    console.log("Error in adding category:", err);
+                    reject("Error in adding category" );
+                } else {
+                    console.log("Category added successfully");
+                    resolve("Category added successfully" );
+                }
+            }
+        );
+    });
+}
+exports.viewcategory = function() {
+    return new Promise((resolve, reject) => {
+        con.query("SELECT * FROM category", (err, result) => {
+            if (err) {
+                console.log("Error in fetching categories:", err);
+                reject("Error in fetching categories");
+            } else {
+                console.log("Categories fetched successfully");
+                console.log(result);
+                resolve(result);
+            }
+        });
+    });
+}
+exports.deletecat = function(id) {
+    return new Promise((resolve, reject) => {
+        con.query("DELETE FROM category WHERE cat_id=?", [id], (err, result) => {
+            if (err) {
+                console.log("Error in deleting category:", err);
+                  con.query("SELECT * FROM category", (err, result) => {
+            if (err) {
+                console.log("Error in fetching categories:", err);
+                reject({msg:"Error in fetching categories",cate:result });
+            } else {
+                console.log("Categories fetched successfully");
+                console.log(result);
+                resolve({msg:"Error in deleting category", cate: result });
+            }
+            });
+         }
+             else {
+                con.query("SELECT * FROM category", (err, result) => {
+                 if (err) {
+                console.log("Error in fetching categories:", err);
+                reject({msg:"Error in fetching categories",cate:result });
+                 } else {
+                console.log("Categories fetched successfully");
+                console.log("Category deleted successfully");
+                console.log(result);
+                resolve({msg:"Category deleted successfully", cat: result });
+            }
+        });
+            }
+        });
+    });
+}
