@@ -72,10 +72,31 @@ exports.addcat=(req,res)=>
 
   result.then((r)=>
   {
-    res.render('admindashboard',{msg:"addcategory.ejs",msg1:"",msgadded:r});
+    res.render('admindashboard',{msg:"addcategory.ejs",msg1:"",msgadded:r, categories:[]});
   });
   result.catch((err)=>
   {
     console.log(err);
   })
 };
+exports.viewcategory=(req,res)=>{
+  let result=model.viewcategory();
+  result.then((r)=>
+  {
+    res.render('admindashboard',{msg:"viewcategory.ejs",msg1:"",msgadded:"",categories:r});
+  });
+  result.catch((err)=>
+  {
+    console.log(err);
+  })
+}
+exports.deletecat=(req,res)=>
+{
+  let result=model.deletecat(req.query.id);
+
+  result.then((r)=>
+  {
+    console.log(r.msg);
+    res.render('admindashboard',{msg:"viewcategory.ejs",msg1:"",msgadded:r.msg, categories:r.cat});
+  }); 
+}

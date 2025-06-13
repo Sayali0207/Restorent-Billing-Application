@@ -1,33 +1,38 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #e9ecef;
-}
 
 .view-category {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
   flex-direction: column;
+  width: 80%;
+  /* border: 1px solid #000; */
+  margin-left: 15%;
+  margin-top: 10%;
+  
 }
 
 .view-category-table {
   background: white;
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px;
+  margin-top: 2%;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   width: 400px;
+  border: 1px solid #000;
+  
+
 }
 
 .view-category-table h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #343a40;
+  /* color: #343a40; */
 }
 
 .view-category-searchbar {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -81,4 +86,23 @@ body {
 .pagination-controls .active-page {
   background-color: #218838;
   font-weight: bold;
+}
+delete-button, .update-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: #3498db;
+  color: #fff;
+  boredr:none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.update-button {
+  background-color: #3498db;
+  color: #fff;
 }

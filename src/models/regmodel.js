@@ -56,7 +56,7 @@ exports.addcategory = function(category_name) {
             "INSERT INTO category(cat_name) VALUES(?)",
             [category_name],
             (err, result) => {
-                if (err) {
+                if (err) { 
                     console.log("Error in adding category:", err);
                     reject("Error in adding category" );
                 } else {
@@ -75,7 +75,40 @@ exports.viewcategory = function() {
                 reject("Error in fetching categories");
             } else {
                 console.log("Categories fetched successfully");
+                console.log(result);
                 resolve(result);
+            }
+        });
+    });
+}
+exports.deletecat = function(id) {
+    return new Promise((resolve, reject) => {
+        con.query("DELETE FROM category WHERE cat_id=?", [id], (err, result) => {
+            if (err) {
+                console.log("Error in deleting category:", err);
+                  con.query("SELECT * FROM category", (err, result) => {
+            if (err) {
+                console.log("Error in fetching categories:", err);
+                reject({msg:"Error in fetching categories",cate:result });
+            } else {
+                console.log("Categories fetched successfully");
+                console.log(result);
+                resolve({msg:"Error in deleting category", cate: result });
+            }
+            });
+         }
+             else {
+                con.query("SELECT * FROM category", (err, result) => {
+                 if (err) {
+                console.log("Error in fetching categories:", err);
+                reject({msg:"Error in fetching categories",cate:result });
+                 } else {
+                console.log("Categories fetched successfully");
+                console.log("Category deleted successfully");
+                console.log(result);
+                resolve({msg:"Category deleted successfully", cat: result });
+            }
+        });
             }
         });
     });
